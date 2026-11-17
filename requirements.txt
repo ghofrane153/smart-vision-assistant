@@ -1,0 +1,26 @@
+# Smart Vision Assistant - Python packages
+# Python 3.11 or newer. For a GPU build of PyTorch, see https://pytorch.org/get-started/locally/
+
+# Notebooks
+jupyterlab
+ipykernel
+
+# Data analysis and plots
+numpy
+pandas
+matplotlib
+
+# Deep learning + detection (YOLO11)
+torch>=2.3,<3
+torchvision
+ultralytics>=8.3,<9
+
+# Video / images
+opencv-python>=4.8,<5
+Pillow>=10,<13
+
+# Depth estimation (MiDaS is loaded with torch.hub and needs timm)
+timm
+
+# Text-to-speech (offline)
+pyttsx3

@@ -1,0 +1,27 @@
+# Python
+.venv
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+
+# Data: images and labels are shared on the group Drive, not on GitHub
+data/raw/*
+!data/raw/.gitkeep
+data/dataset/images/*/*
+data/dataset/labels/*/*
+!data/dataset/**/.gitkeep
+*.zip
+
+# Models and training outputs (too large for Git)
+*.pt
+*.pth
+*.onnx
+runs/
+models/*
+!models/.gitkeep
+
+# OS / editors
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
