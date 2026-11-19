@@ -1,0 +1,5 @@
+split,images,images_without_objects,person,chair,table,laptop,pc,cable,door,stairs
+train,432,122,149,166,45,30,51,66,46,36
+val,120,40,23,52,10,6,19,21,12,7
+test,60,17,10,27,9,4,3,8,6,9
+total,612,179,182,245,64,40,73,95,64,52

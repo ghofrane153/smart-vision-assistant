@@ -1,0 +1,8 @@
+person
+chair
+table
+laptop
+pc
+cable
+door
+stairs
