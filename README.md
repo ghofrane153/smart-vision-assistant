@@ -3,7 +3,7 @@
 Group project for the course *Artificial Intelligence with Python* (ESIGELEC).
 
 A camera worn on the chest films a classroom. A fine-tuned **YOLO11** model detects
-obstacles (people, chairs, tables, bags, cables...), **MiDaS** estimates their distance,
+obstacles (people, chairs, tables, cables, doors, stairs...), **MiDaS** estimates their distance,
 and the system describes the scene out loud:
 
 > "Warning: cable on the floor, in front of you. A chair on your left, about 1 meter away."
@@ -18,7 +18,7 @@ and the system describes the scene out loud:
 
 ## Classes
 
-`0 person` · `1 chair` · `2 table` · `3 laptop` · `4 pc` · `5 backpack` · `6 handbag` · `7 cable`
+`0 person` · `1 chair` · `2 table` · `3 laptop` · `4 pc` · `5 cable` · `6 door` · `7 stairs`
 
 ## Repository structure
 
