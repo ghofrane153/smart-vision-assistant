@@ -9,16 +9,26 @@ data/raw/*
 !data/raw/.gitkeep
 data/dataset/images/*/*
 data/dataset/labels/*/*
+data/dataset/labels/*.cache
+data/dataset/labels_before_audit/
 !data/dataset/**/.gitkeep
+data/resized/
+data/duplicates/
+data/non_annotees/
+data/cvat_exports/
+data/external/
 *.zip
 
 # Models and training outputs (too large for Git)
 *.pt
 *.pth
 *.onnx
-runs/
+runs/*
+!runs/experiments.csv
 models/*
 !models/.gitkeep
+# demo model kept on purpose (force-added)
+!models/run4_openimages_best.pt
 
 # OS / editors
 .DS_Store

@@ -56,7 +56,13 @@ def main() -> int:
     # augmentation (change these in a later run and write why in --notes)
     parser.add_argument("--fliplr", type=float, default=0.5, help="Horizontal flip probability")
     parser.add_argument("--hsv-v", type=float, default=0.4, help="Brightness variation")
-    parser.add_argument("--mosaic", type=float, default=1.0, help="Mosaic probability")
+    parser.add_argument("--mosaic", type=float, default=1.0,
+                        help="Mosaic probability: 4 images in one, each shrunk (thin objects get even thinner)")
+    parser.add_argument("--close-mosaic", type=int, default=10,
+                        help="Turn mosaic off for the last N epochs (0 = keep it until the end)")
+    parser.add_argument("--scale", type=float, default=0.5,
+                        help="Random zoom: images are scaled by a factor between 1-scale and 1+scale "
+                             "(0.5 = 0.5x to 1.5x), simulating objects at different distances")
     parser.add_argument("--degrees", type=float, default=0.0, help="Random rotation (degrees)")
     args = parser.parse_args()
 
@@ -79,6 +85,7 @@ def main() -> int:
         patience=args.patience, device=device, workers=args.workers, seed=args.seed,
         project=str(Path("runs/train").resolve()), name=args.name, exist_ok=False, plots=True,
         fliplr=args.fliplr, hsv_v=args.hsv_v, mosaic=args.mosaic, degrees=args.degrees,
+        scale=args.scale, close_mosaic=args.close_mosaic,
     )
     minutes = (time.time() - t0) / 60
 
@@ -96,6 +103,7 @@ def main() -> int:
         "date": datetime.now().strftime("%Y-%m-%d %H:%M"), "run": args.name, "notes": args.notes,
         "model": args.model, "epochs": args.epochs, "imgsz": args.imgsz, "batch": args.batch,
         "fliplr": args.fliplr, "hsv_v": args.hsv_v, "mosaic": args.mosaic, "degrees": args.degrees,
+        "scale": args.scale, "close_mosaic": args.close_mosaic,
         "train_minutes": round(minutes, 1),
         **{f"val_{k}": round(v, 3) for k, v in val.items()},
         **{f"test_{k}": round(v, 3) for k, v in test.items()},
