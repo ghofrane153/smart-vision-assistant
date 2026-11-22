@@ -359,8 +359,8 @@ def main() -> int:
             n_empty[s] += not lines
             stats[s].update(classes[int(l.split()[0])] for l in lines)
 
+    # no "path" key: Ultralytics then uses the folder of data.yaml, so it works on every PC
     data_yaml = {
-        "path": str(out.resolve()),
         "train": "images/train",
         "val": "images/val",
         "test": "images/test",
